@@ -57,3 +57,16 @@ p {
   font-size: 0.95rem;
   margin: 8px 0;
 }
+
+.mui-custom-box.active {
+  border: 1px solid #1976d2;
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.1);
+  background-color: #f8faff;
+}
+
+.active-text {
+  font-size: 0.85rem;
+  color: #1976d2;
+  font-weight: bold;
+  margin: 4px 0 12px 0;
+}
