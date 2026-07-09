@@ -34,9 +34,16 @@ function App() {
     <div className="App">
       <h1>React Basic Review Mission 2</h1>
 
-      <p>전체 학습 항목 수: {filteredItems().length}개</p>
-
-      <Stack direction="row" spacing={1} sx={{ mb: 3, justifyContent: "flex-start", mt: 3 }}>
+      <Stack
+        direction="row"
+        spacing={2}
+        sx={{
+          mb: 3,
+          justifyContent: "flex-start",
+          alignItems: "center",
+          mt: 3,
+        }}
+      >
         {categories.map(cat => (
           <Button
             key={cat.value}
@@ -47,6 +54,8 @@ function App() {
             {cat.label}
           </Button>
         ))}
+
+        <p>전체 학습 항목 수: {filteredItems().length}개</p>
       </Stack>
 
       <TextField
