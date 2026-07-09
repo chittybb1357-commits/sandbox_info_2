@@ -4,11 +4,13 @@ import StudyInfo from "./components/StudyInfo";
 import { Box } from "@mui/material";
 import StudyList from "./components/StudyList";
 import { useState } from "react";
+import { Button, Stack } from "@mui/material";
 
 console.log(reactData);
 
 function App() {
   const [selectedId, setSelectedId] = useState(null);
+  const [category, setCategory] = useState("all");
   const handleSelect = id => {
     if (selectedId === id) {
       setSelectedId(null);
@@ -16,16 +18,37 @@ function App() {
       setSelectedId(id);
     }
   };
+  const filteredItems = () => {
+    category === "all" ? reactData : reactData.filter(item => item.category === category);
+  };
+  const categories = [
+    { value: "all", label: "전체" },
+    { value: "concept", label: "concept" },
+    { value: "library", label: "library" },
+    { value: "hook", label: "hook" },
+  ];
 
   return (
     <div className="App">
+      <Stack direction="row" spacing={1} justifyContent="center" sx={{ mb: 3 }}>
+        {categories.map(cat => (
+          <Button
+            key={cat.value}
+            variant={category === cat.value ? "contained" : "outlined"}
+            onClick={() => setCategory(cat.value)}
+          >
+            {cat.label}
+          </Button>
+        ))}
+      </Stack>
+
       <h1>React Basic Review Mission 2</h1>
 
       <p>전체 학습 항목 수: {reactData.length}개</p>
 
       <h3>학습 목록</h3>
 
-      <StudyList items={reactData} selectedId={selectedId} onSelect={handleSelect} />
+      <StudyList items={filteredItems} selectedId={selectedId} onSelect={handleSelect} />
     </div>
   );
 }
