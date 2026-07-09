@@ -10,7 +10,11 @@ console.log(reactData);
 function App() {
   const [selectedId, setSelectedId] = useState(null);
   const handleSelect = id => {
-    setSelectedId(id);
+    if (selectedId === id) {
+      setSelectedId(null);
+    } else {
+      setSelectedId(id);
+    }
   };
 
   return (
