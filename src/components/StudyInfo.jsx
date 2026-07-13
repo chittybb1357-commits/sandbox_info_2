@@ -1,13 +1,13 @@
-import React from "react";
-
 export default function StudyInfo({ title, desc, category }) {
   return (
-    <div className="study-info-card">
-      <h2>{title}</h2>
+    <article>
+      <h2>h2 첫번째 데이터 출력</h2>
+
+      <h3>{title}</h3>
 
       <p>{desc}</p>
 
       <p>분류: {category}</p>
-    </div>
+    </article>
   );
 }
