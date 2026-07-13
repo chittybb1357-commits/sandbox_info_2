@@ -29,10 +29,14 @@ function App() {
       <StudyInfo title={m2Content.title} desc={m2Content.desc} category={m2Content.category} />
       <hr />
       <h2>필터</h2>
+
       <div className="filters">
         <button>All</button>
+
         <button>concept</button>
+
         <button>library</button>
+
         <button>hook</button>
       </div>
       <hr />
