@@ -10,9 +10,15 @@ function App() {
 
   const m2Content = reactData[0];
   const [selectedId, setSelectedId] = useState(null);
+  const [category, setCategory] = useState("All");
   const onSelect = _id => {
     setSelectedId(_id);
   };
+  const filteredData = reactData.filter(item => {
+    return category === "All" || category === item.category;
+  });
+
+  console.log(filteredData);
 
   return (
     <>
@@ -22,7 +28,15 @@ function App() {
       <hr />
       <StudyInfo title={m2Content.title} desc={m2Content.desc} category={m2Content.category} />
       <hr />
-      <StudyList items={reactData} onSelect={onSelect} selectedId={selectedId} />
+      <h2>필터</h2>
+      <div className="filters">
+        <button>All</button>
+        <button>concept</button>
+        <button>library</button>
+        <button>hook</button>
+      </div>
+      <hr />
+      <StudyList items={filteredData} onSelect={onSelect} selectedId={selectedId} />
     </>
   );
 }
