@@ -6,7 +6,13 @@ export default function StudyList({ items }) {
       <h2>학습 목록</h2>
       <section>
         {items.map(item => (
-          <article key={item.id}>
+          <article
+            key={item.id}
+            className={item.id === selectedId ? "active" : ""}
+            onClick={() => {
+              onSelect(item.id);
+            }}
+          >
             <h3>{item.title}</h3>
 
             <p>{item.desc}</p>
