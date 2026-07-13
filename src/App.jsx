@@ -2,13 +2,17 @@ import "./App.css";
 import reactData from "./data/data.json";
 import StudyInfo from "./components/StudyInfo";
 import StudyList from "./components/StudyList";
+import { useState } from "react";
 // import { Box, Button, Stack, TextField } from "@mui/material";
-// import { useState } from "react";
 
 function App() {
   console.log(reactData);
 
   const m2Content = reactData[0];
+  const [selectedId, setSelectedId] = useState(null);
+  const onSelect = _id => {
+    setSelectedId(_id);
+  };
 
   return (
     <>
@@ -18,7 +22,7 @@ function App() {
       <hr />
       <StudyInfo title={m2Content.title} desc={m2Content.desc} category={m2Content.category} />
       <hr />
-      <StudyList items={reactData} />
+      <StudyList items={reactData} onSelect={onSelect} selectedId={selectedId} />
     </>
   );
 }
