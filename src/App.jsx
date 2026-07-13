@@ -11,11 +11,15 @@ function App() {
   const m2Content = reactData[0];
   const [selectedId, setSelectedId] = useState(null);
   const [category, setCategory] = useState("All");
+  const [keyword, setKeyword] = useState("");
   const onSelect = _id => {
     setSelectedId(_id);
   };
   const filteredData = reactData.filter(item => {
-    return category === "All" || category === item.category;
+    const categoryMatch = category === "all" || category === item.category;
+    const keyWordMatch = item.title.toLowerCase().includes(keyword.toLowerCase());
+
+    return categoryMatch && keyWordMatch;
   });
 
   console.log(filteredData);
@@ -27,6 +31,14 @@ function App() {
       <p>전체 학습 항목수 : {reactData.length}개</p>
       <hr />
       <StudyInfo title={m2Content.title} desc={m2Content.desc} category={m2Content.category} />
+      <hr />
+      <input
+        type="text"
+        value={keyword}
+        onChange={e => {
+          setKeyword(e.target.value);
+        }}
+      />
       <hr />
       <h2>필터</h2>
 
