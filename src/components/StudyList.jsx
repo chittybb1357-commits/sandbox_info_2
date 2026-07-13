@@ -1,9 +1,10 @@
-export default function StudyList({ items }) {
+export default function StudyList({ items, selectedId, onSelect }) {
   console.log(items);
 
   return (
     <>
       <h2>학습 목록</h2>
+
       <section>
         {items.map(item => (
           <article
@@ -18,6 +19,8 @@ export default function StudyList({ items }) {
             <p>{item.desc}</p>
 
             <p>분류: {item.category}</p>
+
+            {item.id === selectedId && <p>선택된 항목입니다</p>}
           </article>
         ))}
       </section>
