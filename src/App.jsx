@@ -31,13 +31,37 @@ function App() {
       <h2>필터</h2>
 
       <div className="filters">
-        <button>All</button>
+        <button
+          onClick={() => {
+            setCategory("All");
+          }}
+        >
+          All
+        </button>
 
-        <button>concept</button>
+        <button
+          onClick={() => {
+            setCategory("concept");
+          }}
+        >
+          concept
+        </button>
 
-        <button>library</button>
+        <button
+          onClick={() => {
+            setCategory("library");
+          }}
+        >
+          library
+        </button>
 
-        <button>hook</button>
+        <button
+          onClick={() => {
+            setCategory("hook");
+          }}
+        >
+          hook
+        </button>
       </div>
       <hr />
       <StudyList items={filteredData} onSelect={onSelect} selectedId={selectedId} />
