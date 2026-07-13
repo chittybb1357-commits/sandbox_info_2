@@ -13,7 +13,7 @@ const containerStyle = {
   boxSizing: "border-box",
 };
 
-// 🔶 상단 고정 박스 ('첫 번째 데이터 출력' 컴포넌트를 담는 영역)
+// 상단 고정 박스 ('첫 번째 데이터 출력' 컴포넌트를 담는 영역)
 const fixedBoxStyle = {
   mt: 2,
   border: "1px solid #e0e0e0",
